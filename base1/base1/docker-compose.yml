@@ -1,0 +1,13 @@
+services:
+  postgres-docker-base-1:
+    image: 'postgres:latest'
+    container_name: 'postgres-docker-base-1'
+    environment:
+      POSTGRES_USER: admin1
+      POSTGRES_PASSWORD: admin1
+      POSTGRES_DB: base_1
+    volumes:
+      - ./initPostgres.sql:/docker-entrypoint-initdb.d/initPostgres.sql:ro
+    restart: always
+    ports:
+      - '5438:5432'
